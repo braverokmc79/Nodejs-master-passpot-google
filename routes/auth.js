@@ -23,6 +23,10 @@ module.exports = function (passport) {
               <p><input type="password" name="password" placeholder="password"></p>                                 
               <p>
                 <input type="submit" value="login">
+
+              </p>
+              <p>
+              <a class="button google" href="/auth/login/federated/google">Sign in with Google</a>
               </p>
             </form>
           `, '', auth.statusUI(req, res));
@@ -38,6 +42,21 @@ module.exports = function (passport) {
     failureFlash: true,
     successFlash: true
   }));
+
+
+
+  //1.구글로그인 처리 - 로그인 버튼 클릭시
+  router.get('/login/federated/google', passport.authenticate('google'));
+
+
+  //2.구글로그인 처리 - 콜백 반환
+  router.get('/oauth2/redirect/google', passport.authenticate('google', {
+    successRedirect: '/',
+    failureRedirect: '/auth/login'
+  }));
+
+
+
 
 
   //로그 아웃 처리
@@ -109,7 +128,7 @@ module.exports = function (passport) {
           }
 
           var user = {
-            id: this.lastID,
+            id: results.insertId,
             username: req.body.username
           };
 

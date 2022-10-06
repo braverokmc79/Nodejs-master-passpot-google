@@ -2,18 +2,22 @@ const express = require('express')
 const fs = require('fs');
 const bodyParser = require('body-parser')
 const compression = require('compression')
+const logger = require('morgan');
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session);
 const flash = require('connect-flash');
 const app = express()
 const port = 3000
 const helmet = require('helmet')
-
+const dotenv = require("dotenv")
+dotenv.config();
 
 app.use(helmet())
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
+
+
 
 
 // session DB 저장 방식 - session 테이블이 자동 생성되고  세션이 passport의해 저장 된다.

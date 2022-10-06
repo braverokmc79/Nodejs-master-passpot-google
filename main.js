@@ -10,14 +10,14 @@ const app = express()
 const port = 3000
 const helmet = require('helmet')
 const dotenv = require("dotenv")
+const db = require('./lib/db');
+
 dotenv.config();
 
 app.use(helmet())
 app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(compression());
-
-
 
 
 // session DB 저장 방식 - session 테이블이 자동 생성되고  세션이 passport의해 저장 된다.
@@ -37,12 +37,14 @@ app.use(session({
 app.use(flash());
 const passport = require("./lib/passport")(app);
 
+
 app.get('*', (req, res, next) => {
-  fs.readdir('./data', function (error, filelist) {
-    req.list = filelist;
+  db.query("SELECT * FROM TOPICS ", [], function (err, result) {
+    req.list = result;
     next();
   });
 });
+
 
 
 const indexRouter = require("./routes/index");

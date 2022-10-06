@@ -1,0 +1,46 @@
+{
+  "name": "web2-nodejs",
+  "version": "1.0.0",
+  "description": "생활코딩 Node.js - Express",
+  "main": "main.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/braverokmc79/Nodejs-master.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/braverokmc79/Nodejs-master/issues"
+  },
+  "homepage": "https://github.com/braverokmc79/Nodejs-master#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "alert": "^5.1.1",
+    "body-parser": "^1.20.0",
+    "compression": "^1.7.4",
+    "connect-flash": "^0.1.1",
+    "cookie": "^0.5.0",
+    "express": "^4.18.1",
+    "express-mysql-session": "^2.1.8",
+    "express-session": "^1.17.3",
+    "helmet": "^6.0.0",
+    "mysql": "^2.18.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "sanitize-html": "^2.7.2",
+    "session-file-store": "^1.5.0"
+  }
+}

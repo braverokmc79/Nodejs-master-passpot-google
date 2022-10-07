@@ -27,7 +27,8 @@ module.exports = function (passport) {
 
               </p>
               <p>
-              <a class="button google" href="/auth/login/federated/google">Sign in with Google</a>
+                 <a class="button google" style="padding: 8px; text-decoration: none; color: #fff;background: #a22f2f;border-radius: 50px;"
+                       href="/auth/login/federated/google">Sign in with Google</a>
               </p>
             </form>
           `, '', auth.statusUI(req, res));

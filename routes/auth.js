@@ -54,9 +54,10 @@ module.exports = function (passport) {
   //2.구글로그인 처리 - 콜백 반환
   router.get('/oauth2/redirect/google', passport.authenticate('google', {
     successRedirect: '/',
-    failureRedirect: '/auth/login'
+    failureRedirect: '/auth/login',
+    failureFlash: true,
+    successFlash: true
   }));
-
 
 
 
